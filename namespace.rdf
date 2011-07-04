@@ -1,0 +1,38 @@
+
+<!-- Processed by Id: cwm.py,v 1.197 2007-12-13 15:38:39 syosi Exp -->
+<!--     using base file:///home/seebi/Projekte/dssn.rdf/namespace.n3-->
+
+
+<rdf:RDF xmlns="http://xmlns.com/foaf/0.1/"
+    xmlns:doap="http://usefulinc.com/ns/doap#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:vann="http://purl.org/vocab/vann/">
+
+    <Person rdf:about="http://philipp.frischmuth24.de/id/me">
+        <name>Philipp Frischmuth</name>
+    </Person>
+
+    <owl:Ontology rdf:about="http://purl.org/net/dssn/">
+        <vann:preferredNamespacePrefix>dssn</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>http://purl.org/net/dssn/</vann:preferredNamespaceUri>
+        <doap:maintainer rdf:resource="http://sebastian.tramp.name"/>
+        <rdfs:label>DSSN Vocabulary</rdfs:label>
+        <skos:note>This small vocabulary ...</skos:note>
+        <homepage rdf:resource="http://aksw.org/"/>
+        <maker rdf:resource="http://philipp.frischmuth24.de/id/me"/>
+        <maker rdf:resource="http://sebastian.tramp.name"/>
+        <maker rdf:resource="http://www.informatik.uni-leipzig.de/~auer/foaf.rdf#me"/>
+    </owl:Ontology>
+
+    <Person rdf:about="http://sebastian.tramp.name">
+        <name>Sebastian Tramp</name>
+    </Person>
+
+    <Person rdf:about="http://www.informatik.uni-leipzig.de/~auer/foaf.rdf#me">
+        <name>Sören Auer</name>
+    </Person>
+</rdf:RDF>
