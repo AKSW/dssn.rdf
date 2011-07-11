@@ -23,9 +23,21 @@
 
 
 ###
-# Pingback properties
+# DSSN properties
 ###
 
+dssn:activityFeed a owl:ObjectProperty;
+    rdfs:domain foaf:Agent;
+    rdfs:subPropertyOf sioc:feed;
+    rdfs:description "link a agent / person to an activity feed";
+    rdfs:isDefinedBy <http://purl.org/net/dssn/>;
+    rdfs:label "activity feed".
+
+dssn:syncFeed a owl:ObjectProperty;
+    rdfs:subPropertyOf sioc:feed;
+    rdfs:description "link a resource to a changeset / history feed";
+    rdfs:isDefinedBy <http://purl.org/net/dssn/>;
+    rdfs:label "sync feed".
 
 ###
 # Example
@@ -37,7 +49,9 @@
 ###
 
 <http://purl.org/net/dssn/> a owl:Ontology;
-    foaf:maker <http://sebastian.tramp.name>, <http://philipp.frischmuth24.de/id/me>, <http://www.informatik.uni-leipzig.de/~auer/foaf.rdf#me>;
+    foaf:maker <http://sebastian.tramp.name>,
+        <http://philipp.frischmuth24.de/id/me>,
+        <http://www.informatik.uni-leipzig.de/~auer/foaf.rdf#me>;
     doap:maintainer <http://sebastian.tramp.name>;
     vann:preferredNamespacePrefix "dssn";
     vann:preferredNamespaceUri "http://purl.org/net/dssn/";
@@ -45,7 +59,7 @@
     #vann:example <http://aksw.org/Projects/SemanticPingback#usagefoaf>, <http://aksw.org/Projects/SemanticPingback#HowTo>, <http://aksw.org/Projects/SemanticPingback#Implementations>;
     #vann:changes <http://code.google.com/p/ontowiki/source/list?path=/SemanticPingback/namespace.rdf&amp;repo=models>;
     rdfs:label "DSSN Vocabulary";
-    skos:note "This small vocabulary ...".
+    skos:note "vocabulary to describe some Distributed Semantic Social Network relations ...".
 
 #<http://aksw.org/Projects/SemanticPingback> a foaf:Document;
 #    rdfs:label "Semantic Pingback Project Homepage".

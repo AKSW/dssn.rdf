@@ -1,38 +1,50 @@
-
-<!-- Processed by Id: cwm.py,v 1.197 2007-12-13 15:38:39 syosi Exp -->
-<!--     using base file:///home/seebi/Projekte/dssn.rdf/namespace.n3-->
-
-
-<rdf:RDF xmlns="http://xmlns.com/foaf/0.1/"
-    xmlns:doap="http://usefulinc.com/ns/doap#"
-    xmlns:foaf="http://xmlns.com/foaf/0.1/"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-    xmlns:vann="http://purl.org/vocab/vann/">
-
-    <Person rdf:about="http://philipp.frischmuth24.de/id/me">
-        <name>Philipp Frischmuth</name>
-    </Person>
-
-    <owl:Ontology rdf:about="http://purl.org/net/dssn/">
-        <vann:preferredNamespacePrefix>dssn</vann:preferredNamespacePrefix>
-        <vann:preferredNamespaceUri>http://purl.org/net/dssn/</vann:preferredNamespaceUri>
-        <doap:maintainer rdf:resource="http://sebastian.tramp.name"/>
-        <rdfs:label>DSSN Vocabulary</rdfs:label>
-        <skos:note>This small vocabulary ...</skos:note>
-        <homepage rdf:resource="http://aksw.org/"/>
-        <maker rdf:resource="http://philipp.frischmuth24.de/id/me"/>
-        <maker rdf:resource="http://sebastian.tramp.name"/>
-        <maker rdf:resource="http://www.informatik.uni-leipzig.de/~auer/foaf.rdf#me"/>
-    </owl:Ontology>
-
-    <Person rdf:about="http://sebastian.tramp.name">
-        <name>Sebastian Tramp</name>
-    </Person>
-
-    <Person rdf:about="http://www.informatik.uni-leipzig.de/~auer/foaf.rdf#me">
-        <name>Sören Auer</name>
-    </Person>
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:doap="http://usefulinc.com/ns/doap#"
+   xmlns:dssn="http://purl.org/net/dssn/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:http="http://www.w3.org/2006/http#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:pingback="http://purl.org/net/pingback/"
+   xmlns:prv="http://purl.org/net/provenance/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:sioc="http://rdfs.org/sioc/ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:vann="http://purl.org/vocab/vann/"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <foaf:Person rdf:about="http://philipp.frischmuth24.de/id/me">
+    <foaf:name>Philipp Frischmuth</foaf:name>
+  </foaf:Person>
+  <owl:Ontology rdf:about="http://purl.org/net/dssn/">
+    <vann:preferredNamespacePrefix>dssn</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>http://purl.org/net/dssn/</vann:preferredNamespaceUri>
+    <doap:maintainer rdf:resource="http://sebastian.tramp.name"/>
+    <rdfs:label>DSSN Vocabulary</rdfs:label>
+    <skos:note>vocabulary to describe some Distributed Semantic Social Network relations ...</skos:note>
+    <foaf:homepage rdf:resource="http://aksw.org/"/>
+    <foaf:maker rdf:resource="http://philipp.frischmuth24.de/id/me"/>
+    <foaf:maker rdf:resource="http://sebastian.tramp.name"/>
+    <foaf:maker rdf:resource="http://www.informatik.uni-leipzig.de/~auer/foaf.rdf#me"/>
+  </owl:Ontology>
+  <owl:ObjectProperty rdf:about="http://purl.org/net/dssn/activityFeed">
+    <rdfs:description>link a agent / person to an activity feed</rdfs:description>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/net/dssn/"/>
+    <rdfs:label>activity feed</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://rdfs.org/sioc/ns#feed"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://purl.org/net/dssn/syncFeed">
+    <rdfs:description>link a resource to a changeset / history feed</rdfs:description>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/net/dssn/"/>
+    <rdfs:label>sync feed</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://rdfs.org/sioc/ns#feed"/>
+  </owl:ObjectProperty>
+  <foaf:Person rdf:about="http://sebastian.tramp.name">
+    <foaf:name>Sebastian Tramp</foaf:name>
+  </foaf:Person>
+  <foaf:Person rdf:about="http://www.informatik.uni-leipzig.de/~auer/foaf.rdf#me">
+    <foaf:name>Sören Auer</foaf:name>
+  </foaf:Person>
 </rdf:RDF>
