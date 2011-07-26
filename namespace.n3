@@ -9,6 +9,7 @@
 @prefix sioc: <http://rdfs.org/sioc/ns#>.
 @prefix doap: <http://usefulinc.com/ns/doap#>.
 
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#>.
 @prefix vann: <http://purl.org/vocab/vann/>.
 @prefix http: <http://www.w3.org/2006/http#>.
 @prefix prv: <http://purl.org/net/provenance/ns#> .
@@ -21,23 +22,53 @@
 # DSSN classes
 ###
 
+dssn:Application a owl:Class;
+    rdfs:isDefinedBy <http://purl.org/net/dssn/>;
+    vs:term_status "unstable";
+    rdfs:subClassOf foaf:Agent;
+    owl:disjointWith foaf:Person;
+    rdfs:comment "An application on the web, which can act in the name of a WebID owner (access delegation)";
+    rdfs:label "application".
 
 ###
 # DSSN properties
 ###
 
 dssn:activityFeed a owl:ObjectProperty;
+    rdfs:isDefinedBy <http://purl.org/net/dssn/>;
+    vs:term_status "unstable";
     rdfs:domain foaf:Agent;
     rdfs:subPropertyOf sioc:feed;
-    rdfs:description "link a agent / person to an activity feed";
-    rdfs:isDefinedBy <http://purl.org/net/dssn/>;
+    rdfs:comment "link a agent / person to an activity feed";
     rdfs:label "activity feed".
 
 dssn:syncFeed a owl:ObjectProperty;
-    rdfs:subPropertyOf sioc:feed;
-    rdfs:description "link a resource to a changeset / history feed";
     rdfs:isDefinedBy <http://purl.org/net/dssn/>;
+    vs:term_status "unstable";
+    rdfs:subPropertyOf sioc:feed;
+    rdfs:comment "link a resource to a changeset / history feed";
     rdfs:label "sync feed".
+
+dssn:trustedService a owl:ObjectProperty;
+    rdfs:isDefinedBy <http://purl.org/net/dssn/>;
+    vs:term_status "unstable";
+    rdfs:domain foaf:Agent;
+    rdfs:comment "A service which should be used by applications, since the owner of the WebID trusts owner of the service.";
+    rdfs:label "trusted service".
+
+dssn:searchService a owl:ObjectProperty;
+    rdfs:isDefinedBy <http://purl.org/net/dssn/>;
+    vs:term_status "unstable";
+    rdfs:subPropertyOf dssn:trustedService;
+    rdfs:comment "A (trusted and WebID protocol enabled) private SPARQL search service, which should be used by applications which act in the name of the owner of the WebID.";
+    rdfs:label "search service".
+
+dssn:updateService a owl:ObjectProperty;
+    rdfs:isDefinedBy <http://purl.org/net/dssn/>;
+    vs:term_status "unstable";
+    rdfs:subPropertyOf dssn:trustedService;
+    rdfs:comment "A (trusted and WebID protocol enabled) private SPARQL update service, which should be used by applications which act in the name of the owner of the WebID.";
+    rdfs:label "update service".
 
 ###
 # Example
