@@ -193,21 +193,33 @@ class Mimeparse {
 
 header('X-Pingback: http://pingback.aksw.org/');
 
-$acceptHeader=$_SERVER['HTTP_ACCEPT'];
-$acceptedTypes=array("application/rdf+xml", "text/html");
+$acceptHeader = $_SERVER['HTTP_ACCEPT'];
 
+$htmlTypes = array('text/html', '*/*');
+$ttlTypes = array('text/turtle', 'text/rdf+n3', 'application/x-turtle', 'rdf/turtle');
+$rdfTypes = array('application/rdf+xml');
+
+$acceptedTypes = array_merge($htmlTypes, $ttlTypes, $rdfTypes);
+
+$match = @Mimeparse::best_match($acceptedTypes, $acceptHeader);
+
+#var_dump($acceptedTypes);
 #var_dump($acceptHeader);
-#var_dump( Mimeparse::best_match( $acceptedTypes, $acceptHeader ) );
 #exit;
+#echo $match . PHP_EOL;
 
-if ( (isset($acceptHeader)) &&  (@Mimeparse::best_match( $acceptedTypes, $acceptHeader) == "application/rdf+xml") ) {
+if ( (isset($acceptHeader)) && (in_array($match, $rdfTypes))) {
     # maybe we cat-output instead of just another redirect
-    header('Location: /namespace.rdf', true, 303);
+    header('Location: /ns/namespace.rdf', true, 303);
+} else if ( (isset($acceptHeader)) && (in_array($match, $ttlTypes))) {
+    # maybe we cat-output instead of just another redirect
+    header('Location: /ns/namespace.ttl', true, 303);
 } else {
     # maybe we cat-output instead of just another redirect
-    header('Location: /namespace.html', true, 303);
+    header('Location: /ns/namespace.html', true, 303);
 }
 exit;
 
 
 ?>
+
