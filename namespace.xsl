@@ -70,16 +70,16 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
         <h2><xsl:value-of select="dc:date"/></h2>
 
         <dt>Authors:</dt>
-        <dd>
         <xsl:for-each select="foaf:maker">
+            <dd>
             <xsl:call-template name="anchor-rdf-resource">
                 <xsl:with-param name="node" select="."/>
             </xsl:call-template>
+            </dd>
             <xsl:choose>
-                <xsl:when test="following-sibling::foaf:maker">,<br /></xsl:when>
+                <xsl:when test="following-sibling::foaf:maker">,</xsl:when>
             </xsl:choose>
         </xsl:for-each>
-        </dd>
 
         <p><xsl:value-of select="dc:description"/></p>
     </xsl:template>
