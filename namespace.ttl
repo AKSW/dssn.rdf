@@ -99,6 +99,14 @@ dssn:subscriptionTopic a owl:ObjectProperty;
     rdfs:comment "";
     rdfs:label "subscribed for topic".
 
+dssn:subscribedTo a owl:ObjectProperty;
+    rdfs:isDefinedBy <http://purl.org/net/dssn/>;
+    vs:term_status "draft";
+    rdfs:domain sioc:UserAccount;
+    rdfs:range dssn:Subscription;
+    rdfs:comment "This property can be used to refer a UserAccount to all Subscriptions which are relevant for it and about which it should be notified";
+    rdfs:label "subscribed to Subscription".
+
 dssn:notify a owl:ObjectProperty;
     rdfs:isDefinedBy <http://purl.org/net/dssn/>;
     vs:term_status "draft";
@@ -117,6 +125,14 @@ dssn:notify a owl:ObjectProperty;
     sioc:content "You have been tagged on a Picture" ;
     dct:references <http://example.org/image> .
 
+<http://example.org/user> a sioc:UserAccount ;
+                          sioc:account_of <http://example.org/person> ;
+                          dssn:subscribedTo <http://example.org/subscription> .
+
+<http://example.org/subscription> a dssn:Subscription ;
+                                  dssn:subscriptionTopic <http://example.com/feed> ;
+                                  dssn:subscriptionCallback <http://example.org/callback> ;
+                                  dssn:subscriptionHub <http://pubsubhubbub.appspot.com> .
 
 ###
 # Vocabulary description and documentation
